@@ -43,19 +43,27 @@ while running:
 
     # Move the snake
     if direction == "right":
-        head = [(snake_list[0][0] + snake_block) %800, snake_list[0][1]]
+        head = [(snake_list[0][0] + snake_block) % 800, snake_list[0][1]]
     elif direction == "left":
         head = [(snake_list[0][0] - snake_block) % 800, snake_list[0][1]]
     elif direction == "up":
-       head = [snake_list[0][0], (snake_list[0][1] - snake_block) % 600]
+        head = [snake_list[0][0], (snake_list[0][1] - snake_block) % 600]
     elif direction == "down":
-       head = [snake_list[0][0], (snake_list[0][1] + snake_block) % 600]
+        head = [snake_list[0][0], (snake_list[0][1] + snake_block) % 600]
 # Check for collision with food
     if head[0] == foodx and head[1] == foody:
         foodx = round(random.randrange(0, 800-snake_block) / 10.0) * 10.0
         foody = round(random.randrange(0, 600-snake_block) / 10.0) * 10.0
     else:
         snake_list.pop()
+
+# # Check for collision with food
+#     if head[0] == foodx and head[1] == foody:
+#         snake_list.append((head[0], head[1]))
+#         foodx = round(random.randrange(0, 800-snake_block) / 10.0) * 10.0
+#         foody = round(random.randrange(0, 600-snake_block) / 10.0) * 10.0
+#     else:
+#         snake_list.pop(0)
 
 # Check for collision with the boundaries
     if head[0] >= 800 or head[0] < 0 or head[1] >= 600 or head[1] < 0:
